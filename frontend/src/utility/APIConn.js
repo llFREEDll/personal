@@ -123,4 +123,63 @@ const PostHistorial3 = (data, id) =>{
 
 }
 
-export {PostPersona}
+
+///////////////////////////GET//////////////////////////////////////
+
+const GetPersonal = (setData , url) =>{
+
+    axios({
+        method: 'get',
+        url: personasURL
+      }).then((response)=>{
+          setData(response.data)
+          //console.log(response.data)
+      }).catch(err =>{
+          alert(err)
+      });
+
+}
+
+const GetHistorial = (setData , id) =>{
+
+    axios({
+        method: 'get',
+        url: historialURL + id
+      }).then((response)=>{
+          setData(response.data)
+          //console.log(response.data)
+      }).catch(err =>{
+          alert(err)
+      });
+
+}
+
+const GetContacto = (setData , id) =>{
+
+    axios({
+        method: 'get',
+        url: datosContactoURL + id
+      }).then((response)=>{
+          setData(response.data)
+          //console.log(response.data)
+      }).catch(err =>{
+          alert(err)
+      });
+
+}
+
+const GetUbicacion = (setData , id) =>{
+
+    axios({
+        method: 'get',
+        url: ubicacionesURL + id
+      }).then((response)=>{
+          setData(response.data)
+          //console.log(response.data)
+      }).catch(err =>{
+          alert(err)
+      });
+
+}
+
+export {PostPersona, GetPersonal, GetHistorial, GetContacto, GetUbicacion}

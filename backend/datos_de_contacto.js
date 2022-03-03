@@ -36,7 +36,7 @@ datos_de_contacto.get("/datos_de_contacto/:id", (req, res) => {
 
     let { id } = req.params
     id = connection.escape(id)
-    const sql = `SELECT * FROM datos_de_contacto WHERE id_datos = ${id} `
+    const sql = `SELECT * FROM datos_de_contacto WHERE id_persona = ${id} `
 
     connection.query(sql, (error, result) => {
         if (error) throw error

@@ -36,7 +36,7 @@ historiales_laborales.get("/historiales_laborales/:id", (req, res) => {
 
     let { id } = req.params
     id = connection.escape(id)
-    const sql = `SELECT * FROM historiales_laborales WHERE id_hl = ${id} `
+    const sql = `SELECT * FROM historiales_laborales WHERE id_persona = ${id} `
 
     connection.query(sql, (error, result) => {
         if (error) throw error

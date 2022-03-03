@@ -41,7 +41,7 @@ ubicaciones.get("/ubicaciones/:id", (req, res) => {
 
     let { id } = req.params
     id = connection.escape(id)
-    const sql = `SELECT * FROM ubicaciones WHERE id_ubicacion = ${id} `
+    const sql = `SELECT * FROM ubicaciones WHERE id_persona = ${id} `
 
     connection.query(sql, (error, result) => {
         if (error) throw error
