@@ -58,6 +58,7 @@ historiales_laborales.post("/historiales_laborales", (req, res) => {
         fecha_inicio: req.body.fecha_inicio,
         fecha_fin: req.body.fecha_fin,
         actividades: req.body.actividades,
+        id_persona:req.body.id_persona 
     };
 
     connection.query(sql, historialData, (error) => {

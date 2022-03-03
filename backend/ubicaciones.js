@@ -64,7 +64,8 @@ ubicaciones.post("/ubicaciones", (req, res) => {
         no_externo: req.body.no_externo,
         colonia: req.body.colonia,
         pais: req.body.pais,
-        estado: req.body.estado
+        estado: req.body.estado,
+        id_persona:req.body.id_persona 
     };
 
     connection.query(sql, ubicacionData, (error) => {

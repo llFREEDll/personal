@@ -67,9 +67,9 @@ personas.post("/personas", (req, res) => {
         curp: req.body.curp
     };
 
-    connection.query(sql, personaData, (error) => {
+    connection.query(sql, personaData, (error, results, fields) => {
         if (error) throw error
-        res.send("Persona creada!")
+        res.send({id: results.insertId})
     })
 })
 

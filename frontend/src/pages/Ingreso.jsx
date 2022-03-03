@@ -1,12 +1,20 @@
 import NavBar from "../components/NavBar"
 import { Container, Form } from "react-bootstrap"
 import { useState } from "react"
+import { PostPersona } from "../utility/APIConn"
+import { VerifiacarInputs } from "../utility/VerificarInputs"
 
 const Ingreso = () => {
 
     const [itemSeleccionado, setitemSeleccionado] = useState({
-        id: "",
-        name: ""
+        name: "",last_name_1: "",last_name_2: "",
+        sexo:"", born_date :"",curp:"", domicilio:"",
+        no_interior:"",no_exterior :"",colonia:"",
+        pais:"",estado:"", telefono1:"",tipo1:"",
+        telefono2:"", tipo2:"", trabajo1:"",fecha_inicio1:"",
+        fecha_fin1:"",actividades1:"", trabajo2:"",fecha_inicio2:"",
+        fecha_fin2:"",actividades2:"", trabajo3:"",fecha_inicio3:"",
+        fecha_fin3:"",actividades3:""
     })
     const HandleChange = e => {
         const { name, value } = e.target
@@ -18,22 +26,36 @@ const Ingreso = () => {
     }
     const PostData = () => {
 
+        const userInputData = VerifiacarInputs(itemSeleccionado)
+
+        if (userInputData === "") {
+            
+            PostPersona(itemSeleccionado)
+
+        }else {
+            // ObtenerCostoDeEnvio()
+            alert("Verifica los siguientes campos:\n" + userInputData)
+        }
+
+
     }
 
     const [pais, setPais] = useState(false)
     const ChangePais = () => {
-        
-        if (!pais){
+
+        if (!pais) {
             console.log("mexico");
             setitemSeleccionado((prevState) => ({
                 ...prevState,
-                pais: "México"
+                pais: "México",
+                estado:""
             }))
         }
         else
             setitemSeleccionado((prevState) => ({
                 ...prevState,
-                pais: ""
+                pais: "",
+                estado:""
             }))
 
         setPais(!pais)

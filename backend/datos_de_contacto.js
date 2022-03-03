@@ -55,7 +55,8 @@ datos_de_contacto.post("/datos_de_contacto", (req, res) => {
     //console.log(req.body);
     const contactoData = {
         telefono: req.body.telefono,
-        tipo: req.body.tipo
+        tipo: req.body.tipo,
+        id_persona:req.body.id_persona 
     };
 
     connection.query(sql, contactoData, (error) => {
